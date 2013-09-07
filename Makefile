@@ -1,15 +1,17 @@
 CORESRC := src/core.js src/util.js src/data.js src/plot.js
+PLUGINSRC := $(wildcard src/plugins/*.js)
+PLOTSRC := $(wildcard src/plots/*.js)
 BUILDDIR := _build
 LIBDIR := _lib
 D3URL := http://d3js.org/d3.v3.js
 
-all: production debug examples
+all: production debug
 
-debug: $(CORESRC)
+debug: $(CORESRC) $(PLUGINSRC) $(PLOTSRC)
 	@mkdir -p $(BUILDDIR)
 	cat $^ > $(BUILDDIR)/vizerator.debug.js
 
-production: $(CORESRC)
+production: $(CORESRC) $(PLUGINSRC) $(PLOTSRC)
 	@mkdir -p $(BUILDDIR)
 	# TODO Add src minifying
 	cat $^ > $(BUILDDIR)/vizerator.js
