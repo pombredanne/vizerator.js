@@ -23,4 +23,26 @@ viz.util = {
         });
         return r;
     },
+
+    /*
+     * Returns a D3 dash array specification based on a line type.
+     *
+     */
+    lineType: function(t) {
+        // TODO What should the default be?
+        var lt = '';
+        switch (t) {
+            case "dotted":
+                lt = '1,1';
+                break;
+            case "dashed":
+                lt = '5,2';
+                break;
+            case "solid":
+                lt = '1,0';
+                break;
+        }
+        return lt;
+    },
+
 }
