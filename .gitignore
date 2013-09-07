@@ -1,4 +1,5 @@
 *~
 *.swp
 _build/*
+_lib/*
 scratch/*
