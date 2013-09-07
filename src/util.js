@@ -12,11 +12,13 @@ viz.util = {
      */
     extend: function(t, s) {
         var r = {};
-        d3.merge([d3.keys(t), d3.keys(s)]).forEach(function(k) {
-            if (s[k] === undefined) {
-                r[k] = t[k];
-            } else {
+        var tkeys = d3.keys(t);
+        var skeys = d3.keys(s);
+        d3.merge([tkeys, skeys]).forEach(function(k) {
+            if (k in skeys) {
                 r[k] = s[k];
+            } else {
+                r[k] = t[k];
             }
         });
         return r;
