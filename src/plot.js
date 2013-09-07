@@ -14,11 +14,35 @@ viz.Plot = function(data, attrs) {
     }
     this._data = data;
     this._attrs = viz.util.merge(
-            viz.Plot.defaultAttrs,
+            viz.plots.defaultAttrs,
             attrs);
 }
 
-viz.Plot.defaultAttrs = {
+viz.Plot.prototype = {
+    setAttr: function(a, v) {
+        this._attr.set(a, v)
+        return this;
+    },
+    getAttr: function(a) {
+        return this._attrs.get(a);
+    },
+    updateAttrs: function(attrs) {
+        this._attrs = viz.util.merge(this._attrs, attrs);
+        return this;
+    },
+    attr: function(a, v) {
+        if (v === undefined) {
+            return this.getAttr(a);
+        } else {
+            return this.setAttr(a, v);
+        }
+    },
+    create: function(type) {
+        return new (viz.plots.registered[type])(this._data, this._attrs);
+    }
+}
+
+viz.plots.defaultAttrs = {
     selector: "body",
     // Title
     plotTitle: undefined,
@@ -86,33 +110,10 @@ viz.Plot.defaultAttrs = {
  * allowed.
  *
  */
-viz.Plot.register(name, plotClass) {
-    viz.Plot.defaultAttrs = viz.util.merge(
+viz.plots.registered = {};
+viz.plots.register(name, plotClass) {
+    viz.plots.defaultAttrs = viz.util.merge(
             plotClass.defaultAttrs,
-            viz.Plot.defaultAttrs);
-    viz.Plot.plots[name] = plotClass;
-}
-
-viz.Plot.prototype = {
-    setAttr: function(a, v) {
-        this._attr.set(a, v)
-        return this;
-    },
-    getAttr: function(a) {
-        return this._attrs.get(a);
-    },
-    updateAttrs: function(attrs) {
-        this._attrs = viz.util.merge(this._attrs, attrs);
-        return this;
-    },
-    attr: function(a, v) {
-        if (v === undefined) {
-            return this.getAttr(a);
-        } else {
-            return this.setAttr(a, v);
-        }
-    },
-    create: function(type) {
-        return new (viz.Plot.plots[type])(this._data, this._attrs);
-    }
+            viz.plots.defaultAttrs);
+    viz.plots.registered[name] = plotClass;
 }
