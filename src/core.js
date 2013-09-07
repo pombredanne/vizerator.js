@@ -1,1 +1,5 @@
-viz = {};
+viz = {
+    plugins: {},
+    util: {},
+    plots: {}
+}
