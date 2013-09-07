@@ -19,38 +19,66 @@ viz.Plot = function(data, attrs) {
 }
 
 viz.Plot.defaultAttrs = {
-        selector: "body",
-        // Title
-        plotTitle: undefined,
-        plotTitleSize: 22,
-        plotTitleFontFamily: "sans-serif",
-        // Subtitle
-        plotSubtitle: undefined,
-        plotSubtitleSize: 16,
-        plotSubtitleFontFamily: "sans-serif",
-        // Dimensions
-        plotWidth: 600,
-        plotHeight: 300,
-        plotPadding: [50, 50, 50, 50],
-        xOffset: 0.25,
-        yOffset: 0.25,
-        // Grid lines
-        xGridLines: undefined,
-        yGridLines: undefined,
-        gridLines: 10,
-        xGridLineWidth: undefined,
-        yGridLineWidth: undefined,
-        gridLineWidth: 1,
-        xGridLineColor: undefined,
-        yGridLineColor: undefined,
-        gridLineColor: "#000",
-        xGridLineType: undefined,
-        yGridLineType: undefined,
-        gridLineType: "dotted",
-        // Scales
-        xScaleType: 'linear',
-        yScaleType: 'linear'
-    }
+    selector: "body",
+    // Title
+    plotTitle: undefined,
+    plotTitleSize: 22,
+    plotTitleFontFamily: "sans-serif",
+    // Subtitle
+    plotSubtitle: undefined,
+    plotSubtitleSize: 16,
+    plotSubtitleFontFamily: "sans-serif",
+    // Dimensions
+    plotWidth: 600,
+    plotHeight: 300,
+    plotPadding: [50, 50, 50, 50],
+    xOffset: 0.25,
+    yOffset: 0.25,
+    // Grid lines
+    xGridLines: undefined,
+    yGridLines: undefined,
+    gridLines: 10,
+    xGridLineWidth: undefined,
+    yGridLineWidth: undefined,
+    gridLineWidth: 1,
+    xGridLineColor: undefined,
+    yGridLineColor: undefined,
+    gridLineColor: "#000",
+    xGridLineType: undefined,
+    yGridLineType: undefined,
+    gridLineType: "dotted",
+    // Scales
+    xScaleType: 'linear',
+    yScaleType: 'linear',
+    // Axes
+    xAxis: undefined,
+    yAxis: undefined,
+    axes: undefined,
+    xAxisTicks: undefined,
+    yAxisTicks: undefined,
+    axesTicks: undefined,
+    xAxisTickSize: undefined,
+    yAxisTickSize: undefined,
+    axesTickSize: 5,
+    xAxisTickWidth: undefined,
+    yAxisTickWidth: undefined,
+    axesTickWidth: 1,
+    xAxisTickColor: undefined,
+    yAxisTickColor: undefined,
+    axesTickColor: '#000',
+    xAxisTickType: undefined,
+    yAxisTickType: undefined,
+    axesTickType: 'solid',
+    xAxisLineWidth: undefined,
+    yAxisLineWidth: undefined,
+    axesLineWidth: undefined,
+    xAxisLineColor: undefined,
+    yAxisLineColor: undefined,
+    axesLineColor: undefined,
+    xAxisLineType: undefined,
+    yAxisLineType: undefined,
+    axesLineType: undefined,
+}
 
 /*
  * Concrete plots can inject their own custom attribute defaults to avoid
