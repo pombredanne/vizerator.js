@@ -15,7 +15,7 @@ viz.util = {
         var tkeys = d3.keys(t);
         var skeys = d3.keys(s);
         d3.merge([tkeys, skeys]).forEach(function(k) {
-            if (k in skeys) {
+            if (skeys.indexOf(k) !== -1) {
                 r[k] = s[k];
             } else {
                 r[k] = t[k];
