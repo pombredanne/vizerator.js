@@ -15,6 +15,27 @@ viz.Plot = function(data, attrs) {
     this._attrs = viz.util.extend(
             viz.plots.defaultAttrs,
             attrs);
+    this._attrs.selection = d3.select(this._attrs.selector)
+        .append('svg');
+    this._attrs.plotData = data;
+    // Create scales
+    // TODO This shouldn't be here in case data aren't just xy
+    var xMin = d3.min(data, function(d) { return d.x; });
+    var xMax = d3.max(data, function(d) { return d.x; });
+    var xDim = xMax - xMin;
+    this._attrs.xScale = d3.scale[this._attrs.xScaleType]()
+        .domain([xMin - this._attrs.xOffset * xDim,
+                 xMax + this._attrs.xOffset * xDim])
+        .range([this._attrs.plotPadding[3],
+                this._attrs.plotWidth - this._attrs.plotPadding[1]]);
+    var yMin = d3.min(data, function(d) { return d.y; });
+    var yMax = d3.max(data, function(d) { return d.y; });
+    var yDim = yMax - yMin;
+    this._attrs.yScale = d3.scale[this._attrs.yScaleType]()
+        .domain([yMin - this._attrs.yOffset * yDim,
+                 yMax + this._attrs.yOffset * yDim])
+        .range([this._attrs.plotHeight - this._attrs.plotPadding[2],
+                this._attrs.plotPadding[0]]);
 }
 
 viz.Plot.prototype = {
