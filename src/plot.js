@@ -62,6 +62,10 @@ viz.Plot.prototype = {
     }
 }
 
+viz.plot = function(data, attrs) {
+    return new viz.Plot(data, attrs);
+}
+
 viz.plots.defaultAttrs = {
     selector: "body",
     // Title
