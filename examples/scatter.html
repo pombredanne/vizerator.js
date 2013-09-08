@@ -6,7 +6,12 @@
 <script src="../_lib/d3.js" charset="utf-8"></script>
 <script src="../_build/vizerator.debug.js" charset="utf-8"></script>
 <script>
-    var plot = viz.plot([], {})
+    var data = [
+        {x: 2, y: 8},
+        {x: 7, y: 14}
+    ];
+    var plot = viz.plot(data, {})
+        .attr('axesTicks', 10)
         .create('scatter');
 </script>
 </body>
