@@ -40,11 +40,11 @@ viz.Plot = function(data, attrs) {
 
 viz.Plot.prototype = {
     setAttr: function(a, v) {
-        this._attr.set(a, v)
+        this._attrs[a] = v;
         return this;
     },
     getAttr: function(a) {
-        return this._attrs.get(a);
+        return this._attrs[a];
     },
     updateAttrs: function(attrs) {
         this._attrs = viz.util.extend(this._attrs, attrs);
