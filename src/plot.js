@@ -58,7 +58,7 @@ viz.Plot.prototype = {
         }
     },
     create: function(type) {
-        return new (viz.plots.registered[type])(this._data, this._attrs);
+        return new (viz.plots.registered[type])(this._attrs);
     }
 }
 
