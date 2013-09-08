@@ -1,6 +1,10 @@
 /*
  * Plugin to create XY axes.
  *
+ * TODO
+ * - Implement a special axesTicks value 'auto' that will automatically choose
+ *   a reasonable number of ticks based on the data domains
+ *
  */
 
 viz.plugins.axesXY = function() {
