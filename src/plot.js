@@ -135,8 +135,8 @@ viz.plots.defaultAttrs = {
  *
  */
 viz.plots.registered = {};
-viz.plots.register(name, plotClass) {
-    viz.plots.defaultAttrs = viz.util.merge(
+viz.plots.register = function(name, plotClass) {
+    viz.plots.defaultAttrs = viz.util.extend(
             plotClass.defaultAttrs,
             viz.plots.defaultAttrs);
     viz.plots.registered[name] = plotClass;
