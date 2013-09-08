@@ -51,9 +51,9 @@ viz.plugins.axesXY = function() {
         xTicks.enter()
             .append('line')
                 .attr('x1', function(d) { return self.xScale(d); })
-                .attr('y1', yMin - xTickDelta)
+                .attr('y1', yMax - xTickDelta)
                 .attr('x2', function(d) { return self.xScale(d); })
-                .attr('y2', yMin - xTickDelta);
+                .attr('y2', yMax + xTickDelta);
         xTicks
             .style('stroke', self.xAxisTickColor || self.axesTickColor)
             .style('stroke-width', self.xAxisTickWidth || self.axesTickWidth)
@@ -73,7 +73,7 @@ viz.plugins.axesXY = function() {
             .append('line')
                 .attr('x1', xMin - yTickDelta)
                 .attr('y1', function(d) { return self.yScale(d); })
-                .attr('x2', xMin - yTickDelta)
+                .attr('x2', xMin + yTickDelta)
                 .attr('y2', function(d) { return self.yScale(d); });
         yTicks
             .style('stroke', self.yAxisTickColor || self.axesTickColor)
