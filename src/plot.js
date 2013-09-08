@@ -101,7 +101,7 @@ viz.plots.defaultAttrs = {
     // Axes
     xAxis: undefined,
     yAxis: undefined,
-    axes: undefined,
+    axes: true,
     xAxisTicks: undefined,
     yAxisTicks: undefined,
     axesTicks: undefined,
@@ -119,13 +119,13 @@ viz.plots.defaultAttrs = {
     axesTickType: 'solid',
     xAxisLineWidth: undefined,
     yAxisLineWidth: undefined,
-    axesLineWidth: undefined,
+    axesLineWidth: 1,
     xAxisLineColor: undefined,
     yAxisLineColor: undefined,
-    axesLineColor: undefined,
+    axesLineColor: '#000',
     xAxisLineType: undefined,
     yAxisLineType: undefined,
-    axesLineType: undefined,
+    axesLineType: 'solid',
 }
 
 /*
