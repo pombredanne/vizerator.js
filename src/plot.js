@@ -12,8 +12,7 @@ viz.Plot = function(data, attrs) {
     if (attrs === undefined) {
         attrs = {}
     }
-    this._data = data;
-    this._attrs = viz.util.merge(
+    this._attrs = viz.util.extend(
             viz.plots.defaultAttrs,
             attrs);
 }
@@ -27,7 +26,7 @@ viz.Plot.prototype = {
         return this._attrs.get(a);
     },
     updateAttrs: function(attrs) {
-        this._attrs = viz.util.merge(this._attrs, attrs);
+        this._attrs = viz.util.extend(this._attrs, attrs);
         return this;
     },
     attr: function(a, v) {
